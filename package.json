@@ -1,0 +1,28 @@
+{
+  "name": "shop",
+  "version": "1.0.0",
+  "description": "A full-stack demo e-commerce project built with HTML, CSS, JavaScript (frontend), and Node.js with MongoDB (backend). This project demonstrates key concepts of the MVC (Model-View-Controller) pattern and includes separate interfaces for customers and administrators.",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raizy21/shop.git"
+  },
+  "keywords": [],
+  "author": "andrei",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/raizy21/shop/issues"
+  },
+  "homepage": "https://github.com/raizy21/shop#readme",
+  "dependencies": {
+    "dotenv": "^17.1.0",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
