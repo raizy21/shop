@@ -1,0 +1,10 @@
+{
+  "files.associations": {
+    "*.ejs": "ejs"
+  },
+  "[ejs]": {
+    "editor.autoClosingTags": false,
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": null
+  }
+}

@@ -1,5 +1,5 @@
 export function getSignup(req, res) {
-  res.send("Signup Page");
+  res.render("customer/auth/signup");
 }
 
 export function getLogin(req, res) {
