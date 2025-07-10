@@ -4,6 +4,8 @@ import path from "path";
 import { fileURLToPath } from "url";
 import authRoutes from "./routes/auth.routes.js";
 
+import db from "./data/database.js";
+
 dotenv.config();
 
 const PORT = process.env.PORT || 3000;
@@ -22,5 +24,13 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", authRoutes);
 
 app.listen(PORT, () => {
+  db.connectToDatabase()
+    .then(() => {
+      console.log("Connected to the database successfully!");
+    })
+    .catch((error) => {
+      console.error("Database connection failed:", error);
+    });
+
   console.log(`server running on port ${PORT} -> http://localhost:${PORT}/`);
 });
