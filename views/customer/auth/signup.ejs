@@ -1,52 +1,49 @@
-<%- include("../includes/head", { pageTitle: "signup" }) %> 
-<link rel="preconnect" href="/public/styles/forms.css">
-<link rel="stylesheet" href="/public/styles/auth.css">
-
+<%- include('../includes/head', { pageTitle: 'Signup' }) %>
+  <link rel="stylesheet" href="/styles/forms.css">
+  <link rel="stylesheet" href="/styles/auth.css">
 </head>
 <body>
-<%- include("../includes/header") %>
+  <%- include('../includes/header') %>
   <main>
-    <h1> create a new account
-    </h1>
-    <form action="" method="">
-      
+    <h1>Create New Account</h1>
+    <form action="/signup" method="POST">
       <p>
-        <label for="email">email:</label>
+        <label for="email">E-Mail</label>
         <input type="email" id="email" name="email" required>
       </p>
-
       <p>
-        <label for="confirm-email">confirm email:</label>
+        <label for="confirm-email">Confirm Email</label>
         <input type="email" id="confirm-email" name="confirm-email" required>
       </p>
       <p>
-        <label for="password">password:</label>
+        <label for="password">Password</label>
         <input type="password" id="password" name="password" minlength="6" required>
       </p>
-      
       <hr>
       <p>
-        <label for="fullname">full name:</label>
+        <label for="fullname">Full Name</label>
         <input type="text" id="fullname" name="fullname" required>
       </p>
-
       <p>
-        <label for="street">street:</label>
+        <label for="street">Street</label>
         <input type="text" id="street" name="street" required>
       </p>
-
       <p>
-        <label for="postal">postal code:</label>
-        <input type="text" id="postal" name="postal"  minlength="5" maxlength="5" required>
+        <label for="postal">Postal Code</label>
+        <input 
+          type="text" 
+          id="postal" 
+          name="postal" 
+          minlength="5" 
+          maxlength="5" 
+          required>
       </p>
-
       <p>
-        <label for="city">city:</label>
+        <label for="city">City</label>
         <input type="text" id="city" name="city" required>
       </p>
-      
-      <button type="submit" class="btn">create account</button>
-      <p id="switch-form"><a href="/login">login instead</a></p>
+      <button class="btn">Create Account</button>
+      <p id="switch-form"><a href="/login">Login instead</a></p>
     </form>
   </main>
-<%- include("../includes/footer")   %>
+<%- include('../includes/footer') %>
