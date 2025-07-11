@@ -2,9 +2,12 @@ import express from "express";
 import dotenv from "dotenv";
 import path from "path";
 import { fileURLToPath } from "url";
-import authRoutes from "./routes/auth.routes.js";
+import csrf from "csurf";
+import session from "express-session";
 
+import authRoutes from "./routes/auth.routes.js";
 import db from "./data/database.js";
+import addCsrfTokenMiddleware from "./middlewares/csrf-token.js";
 
 dotenv.config();
 
@@ -19,6 +22,16 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: false }));
 
+app.use(
+  session({
+    secret: process.env.SECRET_KEY,
+    resave: false,
+    saveUninitialized: false,
+  })
+);
+
+app.use(csrf());
+app.use(addCsrfTokenMiddleware);
 // app.get("/", (req, res) => {
 //   res.send("app is running...");
 // });
