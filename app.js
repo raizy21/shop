@@ -6,6 +6,8 @@ import csrf from "csurf";
 import expressSession from "express-session";
 
 import authRoutes from "./routes/auth.routes.js";
+import baseRoutes from "./routes/base.routes.js";
+import productsRoutes from "./routes/products.routes.js";
 
 import db from "./data/database.js";
 
@@ -35,7 +37,9 @@ app.use(addCsrfTokenMiddleware);
 //   res.send("app is running...");
 // });
 
-app.use("/", authRoutes);
+app.use(baseRoutes);
+app.use(authRoutes);
+app.use(productsRoutes);
 
 app.use(errorHandlerMiddleware);
 
