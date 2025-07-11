@@ -15,6 +15,7 @@ import createSessionConfig from "./config/session.js";
 
 import addCsrfTokenMiddleware from "./middlewares/csrf-token.js";
 import errorHandlerMiddleware from "./middlewares/error-handler.js";
+import checkAuthStatusMidleware from "./middlewares/check-auth.js";
 
 dotenv.config();
 
@@ -33,6 +34,7 @@ app.use(expressSession(createSessionConfig()));
 
 app.use(csrf());
 app.use(addCsrfTokenMiddleware);
+app.use(checkAuthStatusMidleware);
 // app.get("/", (req, res) => {
 //   res.send("app is running...");
 // });
