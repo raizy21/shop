@@ -7,7 +7,9 @@ import session from "express-session";
 
 import authRoutes from "./routes/auth.routes.js";
 import db from "./data/database.js";
+
 import addCsrfTokenMiddleware from "./middlewares/csrf-token.js";
+import errorHandlerMiddleware from "./middlewares/error-handler.js";
 
 dotenv.config();
 
@@ -22,13 +24,13 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: false }));
 
-app.use(
-  session({
-    secret: process.env.SECRET_KEY,
-    resave: false,
-    saveUninitialized: false,
-  })
-);
+// app.use(
+//   session({
+//     secret: process.env.SECRET_KEY,
+//     resave: false,
+//     saveUninitialized: false,
+//   })
+// );
 
 app.use(csrf());
 app.use(addCsrfTokenMiddleware);
@@ -37,6 +39,8 @@ app.use(addCsrfTokenMiddleware);
 // });
 
 app.use("/", authRoutes);
+
+app.use(errorHandlerMiddleware);
 
 app.listen(PORT, () => {
   db.connectToDatabase()
